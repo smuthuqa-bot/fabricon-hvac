@@ -1,26 +1,517 @@
 @import "tailwindcss";
 
+/* =========================================================
+   FABRICON DESIGN SYSTEM
+   ========================================================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand */
+  --fabricon-navy: #071f3b;
+  --fabricon-navy-light: #0d3157;
+  --fabricon-blue: #1685ed;
+  --fabricon-blue-dark: #0c68c4;
+  --fabricon-green: #63b52f;
+
+  /* Text */
+  --fabricon-ink: #0b2037;
+  --fabricon-text: #24384d;
+  --fabricon-muted: #68788d;
+  --fabricon-white: #ffffff;
+
+  /* Background */
+  --fabricon-bg: #ffffff;
+  --fabricon-soft: #f4f8fc;
+  --fabricon-soft-blue: #edf5fc;
+  --fabricon-dark: #061a30;
+
+  /* Borders */
+  --fabricon-line: #dce5ef;
+  --fabricon-line-dark: #29445f;
+
+  /* Status */
+  --fabricon-success: #63b52f;
+
+  /* Shadows */
+  --shadow-soft: 0 10px 30px rgba(7, 31, 59, 0.08);
+  --shadow-card: 0 18px 50px rgba(7, 31, 59, 0.10);
+  --shadow-heavy: 0 25px 70px rgba(7, 31, 59, 0.16);
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  /* Layout */
+  --container-max: 1280px;
+  --container-padding: 24px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  margin: 0;
+  background: var(--fabricon-bg);
+  color: var(--fabricon-ink);
   font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--fabricon-blue);
+  color: var(--fabricon-white);
+}
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+
+.container-x {
+  width: min(
+    calc(100% - (var(--container-padding) * 2)),
+    var(--container-max)
+  );
+  margin-inline: auto;
+}
+
+.section-padding {
+  padding-block: 96px;
+}
+
+.section-padding-sm {
+  padding-block: 64px;
+}
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+.display-xl {
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+  font-weight: 800;
+}
+
+.display-lg {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  line-height: 1;
+  letter-spacing: -0.045em;
+  font-weight: 800;
+}
+
+.heading-xl {
+  font-size: clamp(2.25rem, 4vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  font-weight: 750;
+}
+
+.heading-lg {
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  font-weight: 750;
+}
+
+.heading-md {
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.body-lg {
+  font-size: 1.125rem;
+  line-height: 1.75;
+}
+
+.body-md {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.body-sm {
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   SECTION KICKER
+   ========================================================= */
+
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  color: var(--fabricon-blue);
+  font-size: 0.75rem;
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.section-kicker::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  background: var(--fabricon-green);
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-height: 48px;
+  padding: 0 22px;
+
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: var(--fabricon-blue);
+  color: var(--fabricon-white);
+  box-shadow: 0 10px 24px rgba(22, 133, 237, 0.2);
+}
+
+.btn-primary:hover {
+  background: var(--fabricon-blue-dark);
+  box-shadow: 0 14px 30px rgba(22, 133, 237, 0.28);
+}
+
+.btn-secondary {
+  background: var(--fabricon-navy);
+  color: var(--fabricon-white);
+}
+
+.btn-secondary:hover {
+  background: var(--fabricon-navy-light);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--fabricon-navy);
+  border-color: var(--fabricon-line);
+}
+
+.btn-outline:hover {
+  border-color: var(--fabricon-blue);
+  color: var(--fabricon-blue);
+}
+
+.btn-white {
+  background: var(--fabricon-white);
+  color: var(--fabricon-navy);
+}
+
+.btn-white:hover {
+  background: var(--fabricon-soft);
+}
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.card {
+  background: var(--fabricon-white);
+  border: 1px solid var(--fabricon-line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+}
+
+.card-hover {
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  border-color: rgba(22, 133, 237, 0.3);
+  box-shadow: var(--shadow-card);
+}
+
+/* =========================================================
+   GLASS
+   ========================================================= */
+
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(220, 229, 239, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* =========================================================
+   INDUSTRIAL GRID
+   ========================================================= */
+
+.industrial-grid {
+  background-image:
+    linear-gradient(
+      rgba(7, 31, 59, 0.055) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(7, 31, 59, 0.055) 1px,
+      transparent 1px
+    );
+
+  background-size: 40px 40px;
+}
+
+/* Dark version */
+
+.industrial-grid-dark {
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.045) 1px,
+      transparent 1px
+    );
+
+  background-size: 40px 40px;
+}
+
+/* =========================================================
+   HERO SURFACE
+   ========================================================= */
+
+.hero-surface {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(22, 133, 237, 0.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(99, 181, 47, 0.08),
+      transparent 25%
+    ),
+    var(--fabricon-navy);
+}
+
+.hero-surface::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.035) 50%,
+      transparent 100%
+    );
+}
+
+/* =========================================================
+   DECORATIVE ELEMENTS
+   ========================================================= */
+
+.accent-line {
+  width: 54px;
+  height: 3px;
+  background: var(--fabricon-green);
+}
+
+.blue-line {
+  width: 54px;
+  height: 3px;
+  background: var(--fabricon-blue);
+}
+
+.corner-mark {
+  position: relative;
+}
+
+.corner-mark::before,
+.corner-mark::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+
+.corner-mark::before {
+  top: 0;
+  left: 0;
+  border-top: 2px solid var(--fabricon-blue);
+  border-left: 2px solid var(--fabricon-blue);
+}
+
+.corner-mark::after {
+  right: 0;
+  bottom: 0;
+  border-right: 2px solid var(--fabricon-green);
+  border-bottom: 2px solid var(--fabricon-green);
+}
+
+/* =========================================================
+   FOCUS
+   ========================================================= */
+
+.focus-ring:focus-visible {
+  outline: 3px solid rgba(22, 133, 237, 0.35);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   UTILITIES
+   ========================================================= */
+
+.text-gradient {
+  background: linear-gradient(
+    90deg,
+    var(--fabricon-blue),
+    var(--fabricon-green)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-muted {
+  color: var(--fabricon-muted);
+}
+
+.bg-soft {
+  background: var(--fabricon-soft);
+}
+
+.bg-navy {
+  background: var(--fabricon-navy);
+}
+
+.bg-dark {
+  background: var(--fabricon-dark);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1024px) {
+  :root {
+    --container-padding: 20px;
+  }
+
+  .section-padding {
+    padding-block: 80px;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --container-padding: 16px;
+  }
+
+  .section-padding {
+    padding-block: 64px;
+  }
+
+  .section-padding-sm {
+    padding-block: 48px;
+  }
+
+  .btn {
+    min-height: 46px;
+    padding-inline: 18px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
