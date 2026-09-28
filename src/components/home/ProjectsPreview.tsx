@@ -4,10 +4,10 @@ import { ArrowUpRight } from "lucide-react";
 import Reveal from "./Reveal";
 
 const projects = [
-  { title: "RMZ Millenia Business Park — Cooling Tower Pipeline Retrofit Work", image: "/images/projects/rmz-cooling-tower.jpg" },
-  { title: "RMZ Millenia Business Park — Duct Work", image: "/images/projects/rmz-duct-work.jpg" },
-  { title: "VWF (York) — IAMPL", image: "/images/projects/vwf-york-iampl.jpg" },
-  { title: "Fujitsu India Pvt Ltd", image: "/images/projects/fujitsu-india.jpg" },
+  { title: "RMZ Millenia Business Park — Cooling Tower Pipeline Retrofit Work", image: "/images/projects/rmz-cooling-tower.jpeg" },
+  { title: "RMZ Millenia Business Park — Duct Work", image: "/images/projects/rmz-duct-work.jpeg" },
+  { title: "VWF (York) — IAMPL", image: "/images/projects/vwf-york-iampl.jpeg" },
+  { title: "Fujitsu India Pvt Ltd", image: "/images/projects/fujitsu-india.jpeg" },
 ];
 
 export default function ProjectsPreview() {

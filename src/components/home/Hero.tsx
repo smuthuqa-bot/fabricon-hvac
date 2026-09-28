@@ -24,7 +24,7 @@ export default function Hero() {
     <section className="relative min-h-[calc(100vh-112px)] overflow-hidden bg-[var(--fabricon-dark)] text-white">
       <div className="absolute inset-0">
         <Image
-          src="/images/hero/fabricon-hero.jpg"
+          src="/images/hero/fabricon-hero.jpeg"
           alt="Engineering infrastructure and HVAC environment"
           fill
           priority

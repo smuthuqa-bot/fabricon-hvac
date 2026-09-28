@@ -1,54 +1,25 @@
-import { ArrowUpRight } from "lucide-react";
-import { aboutContent } from "@/data/about";
+import { UserRound } from "lucide-react";
+import { aboutPage } from "@/data/about";
 
 export default function Management() {
   return (
-    <section className="section-padding bg-soft">
+    <section className="bg-white py-20 sm:py-24">
       <div className="container-x">
         <div className="max-w-3xl">
-          <span className="section-kicker">
-            Management
-          </span>
-
-          <h2 className="heading-lg mt-6">
-            Leadership with technical experience.
-          </h2>
-
-          <p className="body-md text-muted mt-5">
-            Experienced leadership supporting technical
-            direction, project execution and sustainable
-            organizational growth.
-          </p>
+          <p className="section-kicker text-green-700">ACME HVAC</p>
+          <h2 className="mt-3 text-3xl font-black tracking-tight text-[var(--fabricon-ink)] sm:text-5xl">Management & technical direction</h2>
+          <p className="mt-5 text-sm leading-7 text-slate-600">The ACME HVAC company profile identifies the following management team and describes the organisation&apos;s project management, engineering and supervisory capabilities.</p>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {aboutContent.management.map((person) => (
-            <article
-              key={person.name}
-              className="card card-hover group p-7"
-            >
-              <div className="flex items-start justify-between">
-                <div>
-                  <div className="mb-5 h-1 w-12 bg-[var(--fabricon-blue)] transition-all duration-300 group-hover:w-20" />
-
-                  <h3 className="heading-md">
-                    {person.name}
-                  </h3>
-
-                  <p className="mt-2 text-sm font-bold uppercase tracking-[0.1em] text-[var(--fabricon-green)]">
-                    {person.role}
-                  </p>
-                </div>
-
-                <ArrowUpRight
-                  size={20}
-                  className="text-[var(--fabricon-muted)] transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-[var(--fabricon-blue)]"
-                />
+        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+          {aboutPage.acme.management.map((person) => (
+            <article key={person.name} className="rounded-[2rem] border border-[var(--fabricon-line)] bg-[var(--fabricon-soft)] p-7 sm:p-9">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--fabricon-navy)] text-white">
+                <UserRound size={24} />
               </div>
-
-              <p className="body-md mt-7 text-muted">
-                {person.description}
-              </p>
+              <p className="mt-7 text-xs font-black uppercase tracking-[0.18em] text-green-700">{person.role}</p>
+              <h3 className="mt-2 text-2xl font-black text-[var(--fabricon-ink)]">{person.name}</h3>
+              <p className="mt-4 text-sm leading-7 text-slate-600">{person.bio}</p>
             </article>
           ))}
         </div>
