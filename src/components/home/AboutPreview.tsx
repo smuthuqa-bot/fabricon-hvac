@@ -1,58 +1,60 @@
+"use client";
+
 import Link from "next/link";
-import { ArrowUpRight, CheckCircle2 } from "lucide-react";
-import Reveal from "./Reveal";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+import Reveal from "@/components/home/Reveal";
 
 const points = [
-  "15+ years of expertise",
-  "500+ projects completed",
-  "2 strategic businesses",
-  "100% client satisfaction",
+  "11kV to 400kV substation capability",
+  "Underground EHV/HV cable networks",
+  "Heavy civil and structural steel execution",
+  "In-house fabrication and site coordination",
 ];
 
 export default function AboutPreview() {
   return (
-    <section className="section-padding bg-[var(--fabricon-soft)]">
-      <div className="container-x grid items-center gap-14 lg:grid-cols-[.9fr_1.1fr]">
-        <Reveal>
-          <div className="relative min-h-[430px] overflow-hidden rounded-[28px] bg-[var(--fabricon-navy)] p-8 text-white shadow-[var(--shadow-heavy)]">
-            <div className="industrial-grid-dark absolute inset-0 opacity-70" />
-            <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full border border-white/10" />
-            <div className="absolute bottom-10 left-10 h-36 w-36 rounded-full border border-[var(--fabricon-blue)]/25" />
-            <div className="relative z-10 flex h-full flex-col justify-between">
-              <span className="text-xs font-extrabold uppercase tracking-[0.15em] text-[var(--fabricon-green)]">
-                Engineering Solutions
+    <section className="bg-[var(--fabricon-soft)] py-20 md:py-28">
+      <div className="container-x">
+        <div className="grid gap-12 lg:grid-cols-[.82fr_1.18fr] lg:items-center">
+          <Reveal>
+            <div>
+              <span className="text-xs font-black uppercase tracking-[0.18em] text-[#FB5501]">
+                About FABRICON
               </span>
-              <div>
-                <div className="text-8xl font-black tracking-[-.07em] text-white/10">01</div>
-                <h3 className="mt-2 max-w-sm text-3xl font-bold tracking-tight">
-                  Building a smarter tomorrow through engineering.
-                </h3>
+              <h2 className="mt-4 text-4xl font-black leading-tight tracking-[-0.04em] text-[var(--fabricon-ink)] md:text-6xl">
+                Built for complex infrastructure.
+              </h2>
+              <p className="mt-6 max-w-xl text-base leading-8 text-[var(--fabricon-muted)]">
+                FABRICON is a Kuwait-based multidisciplinary EPC contractor specializing
+                in electrical power transmission, substations, civil construction and
+                structural steel fabrication.
+              </p>
+              <Link
+                href="/about"
+                className="mt-8 inline-flex items-center gap-2 rounded-full bg-[var(--fabricon-ink)] px-6 py-3.5 text-sm font-black text-white transition hover:bg-[#102f50]"
+              >
+                Discover FABRICON
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <div className="rounded-[28px] bg-white p-7 shadow-[0_18px_70px_rgba(7,31,59,0.08)] md:p-10">
+              <div className="text-sm font-black uppercase tracking-[0.12em] text-[var(--fabricon-ink)]">
+                What we bring together
+              </div>
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                {points.map((point) => (
+                  <div key={point} className="flex gap-3 rounded-2xl border border-[var(--fabricon-line)] p-5">
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#FB5501]" />
+                    <span className="text-sm leading-6 text-[var(--fabricon-ink)]">{point}</span>
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.08}>
-          <span className="section-kicker">About Us</span>
-          <h2 className="heading-xl mt-5">
-            Engineering infrastructure. Enhancing lives.
-          </h2>
-          <p className="body-lg mt-7 max-w-2xl text-[var(--fabricon-muted)]">
-            FABRICON and ACME HVAC bring together complementary engineering capabilities, from power infrastructure to HVAC systems, installation, testing, commissioning and ongoing support.
-          </p>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            {points.map((point) => (
-              <div key={point} className="flex gap-3">
-                <CheckCircle2 size={19} className="mt-0.5 shrink-0 text-[var(--fabricon-green)]" />
-                <span className="text-sm font-semibold text-[var(--fabricon-text)]">{point}</span>
-              </div>
-            ))}
-          </div>
-          <Link href="/about" className="btn btn-secondary mt-9">
-            Discover More
-            <ArrowUpRight size={16} />
-          </Link>
-        </Reveal>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

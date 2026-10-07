@@ -9,7 +9,7 @@ import ClientsPreview from "@/components/home/ClientsPreview";
 import QualitySafety from "@/components/home/QualitySafety";
 import ContactCTA from "@/components/home/ContactCTA";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <main>
       <Hero />
