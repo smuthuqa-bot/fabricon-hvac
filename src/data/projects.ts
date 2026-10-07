@@ -37,7 +37,7 @@ export const projects = [
     tags: ["HVAC", "Industrial"],
     description:
       "HVAC project experience associated with VWF (YORK) – IAMPL.",
-    image: "/images/projects/vwf-york-iampl.jpg",
+    image: "/images/projects/vwf-york-iampl.jpeg",
     accent: "green",
   },
 
@@ -65,7 +65,7 @@ export const projects = [
     tags: ["HVAC", "Installation", "Testing"],
     description:
       "HVAC project experience for Fujitsu India Pvt Ltd, Chennai.",
-    image: "/images/projects/fujitsu-india.jpg",
+    image: "/images/projects/fujitsu-india.jpeg",
     accent: "green",
   },
 
