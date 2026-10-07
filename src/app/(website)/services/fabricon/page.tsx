@@ -15,7 +15,7 @@ export default function FabriconServicesPage() {
         eyebrow="FABRICON SERVICES"
         title="Complete Electrical Infrastructure Solutions."
         description="From substations to power cables, from installation to commissioning, FABRICON provides focused electrical infrastructure services."
-        image="/images/fabricon/substation.jpg"
+        image="/images/fabricon/substation.jpeg"
         accent="orange"
       />
 

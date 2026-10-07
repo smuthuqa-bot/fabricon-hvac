@@ -1,29 +1,30 @@
-import { Award, Globe2, HardHat, ShieldCheck, Settings2 } from "lucide-react";
+"use client";
+
+import { BadgeCheck, Building2, HardHat, ShieldCheck, Wrench } from "lucide-react";
+import Reveal from "@/components/home/Reveal";
 
 const items = [
-  { icon: HardHat, label: "Experienced", sub: "Team" },
-  { icon: Award, label: "Quality", sub: "Focused" },
-  { icon: ShieldCheck, label: "Safety", sub: "First" },
-  { icon: Settings2, label: "End-to-End", sub: "Solutions" },
-  { icon: Globe2, label: "Serving Kuwait, India", sub: "and Beyond" },
+  { title: "KSE Registered", icon: BadgeCheck },
+  { title: "CAPT Registered", icon: Building2 },
+  { title: "Safety First", icon: HardHat },
+  { title: "Turnkey Execution", icon: Wrench },
+  { title: "Quality Focused", icon: ShieldCheck },
 ];
 
 export default function TrustBar() {
   return (
-    <section className="border-y border-[var(--fabricon-line)] bg-white">
-      <div className="container-x grid md:grid-cols-5">
-        {items.map((item, index) => {
-          const Icon = item.icon;
-          return (
-            <div key={item.label} className={`flex items-center gap-4 px-5 py-6 first:pl-0 ${index > 0 ? "border-l border-[var(--fabricon-line)]" : ""}`}>
-              <Icon size={30} strokeWidth={1.6} className="shrink-0 text-[var(--fabricon-navy)]" />
-              <div>
-                <p className="text-sm font-semibold text-[var(--fabricon-text)]">{item.label}</p>
-                <p className="text-sm text-[var(--fabricon-muted)]">{item.sub}</p>
+    <section className="border-b border-[var(--fabricon-line)] bg-white">
+      <div className="container-x py-5">
+        <Reveal>
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-5">
+            {items.map(({ title, icon: Icon }) => (
+              <div key={title} className="flex items-center justify-center gap-2 text-center text-xs font-black uppercase tracking-[0.12em] text-[var(--fabricon-ink)] md:justify-start">
+                <Icon className="h-4 w-4 shrink-0 text-[#FB5501]" />
+                <span>{title}</span>
               </div>
-            </div>
-          );
-        })}
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );
