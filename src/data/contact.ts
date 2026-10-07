@@ -1,0 +1,47 @@
+export const contactOffices = [
+  {
+    company: "FABRICON",
+    location: "Kuwait",
+    title: "Kuwait Headquarters",
+    address: "Fahaheel, State of Kuwait",
+    phones: ["+965 9407 7827", "+965 9406 8229"],
+    email: "admin@fabriconkwt.com",
+    hours: "Sunday – Thursday: 8:00 AM – 5:00 PM",
+    accent: "orange",
+  },
+  {
+    company: "ACME HVAC",
+    location: "Chennai",
+    title: "Base Office",
+    address:
+      "No: 1/448A, Karthikeyapuram 3rd Street, Madipakkam, Chennai – 600091",
+    phones: [
+      "+91 9150019317",
+      "+91 9080000140",
+      "+91 9840962832",
+    ],
+    email: "contact@acmehvac.co.in",
+    hours: "Contact our team for current office timings.",
+    accent: "green",
+  },
+  {
+    company: "ACME HVAC",
+    location: "Bangalore",
+    title: "Branch Office",
+    address: "Malleshpalya, Bangalore",
+    phones: [],
+    email: "info@acmehvac.co.in",
+    hours: "Contact our team for branch support.",
+    accent: "green",
+  },
+  {
+    company: "ACME HVAC",
+    location: "Andhra Pradesh",
+    title: "Branch Office",
+    address: "Chinnapandur, Andhra Pradesh (Sricity)",
+    phones: [],
+    email: "info@acmehvac.co.in",
+    hours: "Contact our team for branch support.",
+    accent: "green",
+  },
+] as const;
